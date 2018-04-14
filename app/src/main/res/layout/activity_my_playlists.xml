@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000"
+        android:orientation="vertical"
+        tools:context="com.example.android.musicalstructureapp.MyPlaylists">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/rockowo"
+                style="@style/ImageStyle"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/rockowo" />
+
+            <TextView
+                android:id="@+id/choose_the_playlist"
+                style="@style/TextStyle"
+                android:layout_margin="30dp"
+                android:text="@string/rock"
+                android:textAppearance="@style/CodeFont" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/classic"
+                style="@style/ImageStyle"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/pianino" />
+
+            <TextView
+                android:id="@+id/choose_the_playlist2"
+                style="@style/TextStyle"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="30dp"
+                android:text="@string/classic"
+                android:textAppearance="@style/CodeFont" />
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

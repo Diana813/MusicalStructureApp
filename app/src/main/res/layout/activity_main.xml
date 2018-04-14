@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.android.musicalstructureapp.MainActivity">
+
+        <ImageView
+            style="@style/ImageStyle"
+            android:src="@drawable/rockofmind" />
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/TextStyle2"
+            android:text="@string/music_player"
+            android:textAppearance="@style/CodeFont" />
+
+        <TextView
+            android:id="@+id/start_music"
+            style="@style/TextStyle2"
+            android:layout_alignParentBottom="true"
+            android:text="@string/start"
+            android:textAllCaps="true"
+            android:textAppearance="@style/CodeFont" />
+    </RelativeLayout>
+</layout>

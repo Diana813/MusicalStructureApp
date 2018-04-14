@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Musical Structure App</string>
+    <string name="mood">What\'s your mood today?</string>
+    <string name="rock_playlist">Your Rock Playlist:</string>
+    <string name="classic_playlist">Your Classic Playlist:</string>
+    <string name="rock">Rock</string>
+    <string name="classic">Classic</string>
+    <string name="music_player">This Is Your Favorite Music Player</string>
+    <string name="start">Let\'s start playing music!!!!</string>
+
+</resources>
