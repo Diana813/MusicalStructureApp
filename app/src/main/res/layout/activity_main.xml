@@ -13,13 +13,13 @@
 
         <TextView
             android:id="@+id/name"
-            style="@style/TextStyle2"
+            style="@style/MainActivityTextStyle"
             android:text="@string/music_player"
             android:textAppearance="@style/CodeFont" />
 
         <TextView
             android:id="@+id/start_music"
-            style="@style/TextStyle2"
+            style="@style/MainActivityTextStyle"
             android:layout_alignParentBottom="true"
             android:text="@string/start"
             android:textAllCaps="true"

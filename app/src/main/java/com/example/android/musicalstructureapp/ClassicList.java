@@ -2,7 +2,11 @@ package com.example.android.musicalstructureapp;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.android.musicalstructureapp.databinding.SongsListBinding;
 
@@ -34,5 +38,14 @@ public class ClassicList extends AppCompatActivity {
         SongsAdapter adapter = new SongsAdapter(this, songs);
 
         binding.list.setAdapter(adapter);
+
+        binding.play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImageView play = (ImageView) findViewById(R.id.play);
+                play.setImageResource(R.drawable.ic_pause_black_24dp);
+            }
+        });
     }
+
 }
