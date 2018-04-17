@@ -4,7 +4,6 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.example.android.musicalstructureapp.databinding.SongsListBinding;
 
@@ -15,6 +14,7 @@ public class ClassicList extends AppCompatActivity {
 
     SongsListBinding binding;
     private int i = 0;
+    private int p = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +51,17 @@ public class ClassicList extends AppCompatActivity {
         images.add(R.drawable.chopin9);
         images.add(R.drawable.chopin10);
 
+        //Set on click Listener to the play Button
         binding.play.setOnClickListener(new View.OnClickListener() {
+            //This method will be executed when the play button is clicked on.
             @Override
             public void onClick(View view) {
-                ImageView play = (ImageView) findViewById(R.id.play);
-                play.setImageResource(R.drawable.ic_pause_black_24dp);
+                p++;
+                if (p % 2 == 0) {
+                    binding.play.setImageResource(R.drawable.ic_play_arrow_black_24dp);
+                } else {
+                    binding.play.setImageResource(R.drawable.ic_pause_black_24dp);
+                }
             }
         });
         //This method shows the title of the first song on your playlist

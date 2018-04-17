@@ -13,6 +13,7 @@ public class RockList extends AppCompatActivity {
 
     SongsListBinding binding;
     private int i = 0;
+    private int p = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +49,17 @@ public class RockList extends AppCompatActivity {
         images.add(R.drawable.manson);
         images.add(R.drawable.muse);
 
+        //Set on click Listener to the play Button
         binding.play.setOnClickListener(new View.OnClickListener() {
+            //This method will be executed when the play button is clicked on.
             @Override
             public void onClick(View view) {
-                binding.play.setImageResource(R.drawable.ic_pause_black_24dp);
+                p++;
+                if (p % 2 == 0) {
+                    binding.play.setImageResource(R.drawable.ic_play_arrow_black_24dp);
+                } else {
+                    binding.play.setImageResource(R.drawable.ic_pause_black_24dp);
+                }
             }
         });
         //This method shows the title of the first song on your playlist
