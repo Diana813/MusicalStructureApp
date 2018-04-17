@@ -2,8 +2,6 @@ package com.example.android.musicalstructureapp;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,7 +13,8 @@ import java.util.ArrayList;
 
 public class ClassicList extends AppCompatActivity {
 
-     SongsListBinding binding;
+    SongsListBinding binding;
+    private int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +22,7 @@ public class ClassicList extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.songs_list);
         //Create an array of songs
 
-        ArrayList<Songs> songs = new ArrayList<Songs>();
+        final ArrayList<Songs> songs = new ArrayList<Songs>();
         songs.add(new Songs("Fryderyk Chopin", "Nocturne op.9 No.2"));
         songs.add(new Songs("Fryderyk Chopin", "Funeral march"));
         songs.add(new Songs("Fryderyk Chopin", "Nocturne op.72 No.1"));
@@ -39,6 +38,19 @@ public class ClassicList extends AppCompatActivity {
 
         binding.list.setAdapter(adapter);
 
+        //Create an array of images
+        final ArrayList<Integer> images = new ArrayList<>();
+        images.add(R.drawable.chopin1);
+        images.add(R.drawable.chopin2);
+        images.add(R.drawable.chopin3);
+        images.add(R.drawable.chopin4);
+        images.add(R.drawable.chopin5);
+        images.add(R.drawable.chopin6);
+        images.add(R.drawable.choipn7);
+        images.add(R.drawable.chopin8);
+        images.add(R.drawable.chopin9);
+        images.add(R.drawable.chopin10);
+
         binding.play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +58,40 @@ public class ClassicList extends AppCompatActivity {
                 play.setImageResource(R.drawable.ic_pause_black_24dp);
             }
         });
+        //This method shows the title of the first song on your playlist
+        binding.title.setText(songs.get(0).getSongTitle() + " " + songs.get(0).getSongAuthor());
+
+        //This method shows the picture to the first song on your playlist
+        binding.songImage.setImageResource(images.get(0));
+
+        //This method will be executed when skipNext button is clicked on.
+        binding.skipNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i++;
+                if (i < songs.size()) {
+                    binding.title.setText(songs.get(i).getSongTitle() + " " + songs.get(i).getSongAuthor());
+                    binding.songImage.setImageResource(images.get(i));
+                } else {
+                    i = -1;
+                }
+            }
+        });
+        //This method will be executed when skipPrevious button is clicked on.
+        binding.skipPrevious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                i--;
+                if (i > -1) {
+                    binding.title.setText(songs.get(i).getSongTitle() + " " + songs.get(i).getSongAuthor());
+                    binding.songImage.setImageResource(images.get(i));
+                }
+                if (i < 1) {
+                    i = songs.size();
+                }
+            }
+        });
+
     }
 
 }
