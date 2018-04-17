@@ -22,7 +22,7 @@ public class RockList extends AppCompatActivity {
 
         //Create an array of songs
         final ArrayList<Songs> songs = new ArrayList<Songs>();
-        songs.add(new Songs("Metallica", "Whiskey in a jar"));
+        songs.add(new Songs("Metallica", "Whiskey in the jar"));
         songs.add(new Songs("Aerosmith", "Crazy"));
         songs.add(new Songs("Imagine Dragons", "Beliver"));
         songs.add(new Songs("Kaleo", "Way down we go"));
@@ -49,6 +49,7 @@ public class RockList extends AppCompatActivity {
         images.add(R.drawable.manson);
         images.add(R.drawable.muse);
 
+
         //Set on click Listener to the play Button
         binding.play.setOnClickListener(new View.OnClickListener() {
             //This method will be executed when the play button is clicked on.
@@ -72,12 +73,13 @@ public class RockList extends AppCompatActivity {
         binding.skipNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                i++;
                 if (i < songs.size()) {
                     binding.title.setText(songs.get(i).getSongTitle() + " " + songs.get(i).getSongAuthor());
                     binding.songImage.setImageResource(images.get(i));
-                } else {
-                    i = -1;
+                    i++;
+                }
+                if (i == songs.size()){
+                    i = 0;
                 }
             }
         });

@@ -16,7 +16,7 @@
 
             <ImageView
                 android:id="@+id/rockowo"
-                style="@style/ImageStyle"
+                style="@style/BackgroundImageStyle"
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="15dp"
                 android:src="@drawable/rockowo" />
@@ -36,7 +36,7 @@
 
             <ImageView
                 android:id="@+id/classic"
-                style="@style/ImageStyle"
+                style="@style/BackgroundImageStyle"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="15dp"
                 android:src="@drawable/pianino" />
