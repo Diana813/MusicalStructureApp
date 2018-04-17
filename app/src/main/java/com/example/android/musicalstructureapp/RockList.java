@@ -1,30 +1,25 @@
 package com.example.android.musicalstructureapp;
 
 import android.databinding.DataBindingUtil;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.android.musicalstructureapp.databinding.SongsListBinding;
 
 import java.util.ArrayList;
-import java.util.ListIterator;
 
 public class RockList extends AppCompatActivity {
 
     SongsListBinding binding;
-
-    int i = 0;
+    private int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.songs_list);
-        //Create an array of songs
 
+        //Create an array of songs
         final ArrayList<Songs> songs = new ArrayList<Songs>();
         songs.add(new Songs("Metallica", "Whiskey in a jar"));
         songs.add(new Songs("Aerosmith", "Crazy"));
@@ -40,16 +35,30 @@ public class RockList extends AppCompatActivity {
         final SongsAdapter adapter = new SongsAdapter(this, songs);
         binding.list.setAdapter(adapter);
 
+        //Create an array of images
+        final ArrayList<Integer> images = new ArrayList<>();
+        images.add(R.drawable.metallica);
+        images.add(R.drawable.crazy);
+        images.add(R.drawable.believer);
+        images.add(R.drawable.kaleo);
+        images.add(R.drawable.human);
+        images.add(R.drawable.legendary);
+        images.add(R.drawable.sky_is_a_neighborhood);
+        images.add(R.drawable.back_to_black);
+        images.add(R.drawable.manson);
+        images.add(R.drawable.muse);
 
         binding.play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 binding.play.setImageResource(R.drawable.ic_pause_black_24dp);
             }
         });
         //This method shows the title of the first song on your playlist
         binding.title.setText(songs.get(0).getSongTitle() + " " + songs.get(0).getSongAuthor());
+
+        //This method shows the picture to the first song on your playlist
+        binding.songImage.setImageResource(images.get(0));
 
         //This method will be executed when skipNext button is clicked on.
         binding.skipNext.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +67,8 @@ public class RockList extends AppCompatActivity {
                 i++;
                 if (i < songs.size()) {
                     binding.title.setText(songs.get(i).getSongTitle() + " " + songs.get(i).getSongAuthor());
-                }else{
+                    binding.songImage.setImageResource(images.get(i));
+                } else {
                     i = -1;
                 }
             }
@@ -70,6 +80,7 @@ public class RockList extends AppCompatActivity {
                 i--;
                 if (i > -1) {
                     binding.title.setText(songs.get(i).getSongTitle() + " " + songs.get(i).getSongAuthor());
+                    binding.songImage.setImageResource(images.get(i));
                 }
                 if (i < 1) {
                     i = songs.size();
