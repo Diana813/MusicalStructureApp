@@ -73,14 +73,18 @@ public class RockList extends AppCompatActivity {
         binding.skipNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (i < songs.size()) {
-                    binding.title.setText(songs.get(i).getSongTitle() + " " + songs.get(i).getSongAuthor());
-                    binding.songImage.setImageResource(images.get(i));
-                    i++;
-                }
-                if (i == songs.size()){
+
+                i++;
+
+                if (i >= songs.size()) {
+
                     i = 0;
                 }
+                    binding.title.setText(songs.get(i).getSongTitle() + " " + songs.get(i).getSongAuthor());
+                    binding.songImage.setImageResource(images.get(i));
+
+
+
             }
         });
         //This method will be executed when skipPrevious button is clicked on.
